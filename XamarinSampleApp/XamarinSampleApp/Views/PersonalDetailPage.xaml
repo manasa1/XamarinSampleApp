@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinSampleApp.Views.PersonalDetailPage">
+  
+<ScrollView Orientation="Vertical" Padding="0" VerticalOptions="FillAndExpand">
+  <ListView   RowHeight="80" SeparatorVisibility="None" x:Name="Personaldetails"   >
+    
+
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ContentView Padding="5">
+            <Frame OutlineColor="Transparent" BackgroundColor="#e6e7e8"
+                                                     Padding="10">
+              <StackLayout   Padding="0" Orientation="Horizontal">
+              </StackLayout>
+            </Frame>
+          </ContentView>
+
+        </ViewCell>
+
+
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+
+</ScrollView>
+</ContentPage>
