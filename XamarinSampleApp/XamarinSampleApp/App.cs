@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using XamarinSampleApp.Views;
 
 namespace XamarinSampleApp
 {
@@ -12,22 +13,9 @@ namespace XamarinSampleApp
         public App()
         {
             // The root page of your application
-            var content = new ContentPage
-            {
-                Title = "XamarinSampleApp",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+          
 
-            MainPage = new NavigationPage(content);
+            MainPage = new MasterChildPage();
         }
 
         protected override void OnStart()

@@ -12,7 +12,42 @@ namespace XamarinSampleApp.Views
     {
         public InformationFormPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+               this.BindingContext = new
+                {
+                    Name = "Name",
+                   UploadPic = "Upload Photo",
+                   TakePic="Take Photo",
+                   Nationality = "Nationality",
+                   DOB="Date of Birth",
+                   MaritalStatus= "Marital Status",
+                   Sex ="Sex"
+               };
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+          GetCountriesList();
+        }
+        public async Task<string> GetCountriesList()
+        {
+
+            var client = new System.Net.Http.HttpClient();
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+            var address = "https://api.printful.com/countries"; //?format=application/json";
+
+            var response = await client.GetAsync(address);
+
+            var airportJson = response.Content.ReadAsStringAsync().ToString();
+
+            //var rootobject = JsonConvert.DeserializeObject<Rootobject>(airportJson);
+
+            return airportJson;
+
         }
     }
 }

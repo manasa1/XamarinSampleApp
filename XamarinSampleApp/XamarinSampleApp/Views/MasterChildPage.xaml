@@ -3,7 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinSampleApp.Views.MasterChildPage">
   <MasterDetailPage.Master>
-    <ContentPage Title="master" ></ContentPage>
+    <ContentPage Title="master" >
+      <StackLayout Orientation="Vertical">
+        <BoxView Color="Black"  WidthRequest="1" HeightRequest="1"  ></BoxView>
+
+      </StackLayout>
+      <ListView x:Name="MasterListview" RowHeight="55" ItemSelected="OnMenuItemSelected" >
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout VerticalOptions="FillAndExpand" Spacing="20" Padding="20,10,20,10" Orientation="Vertical">
+ <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Spacing="20" Padding="20,10,0,10">
+           <Image Source="{Binding Photo}" VerticalOptions="End" HorizontalOptions="Start"></Image>
+    
+ <Label Text="{Binding Name}" TextColor="Black" FontSize="Small"  HorizontalOptions="FillAndExpand" LineBreakMode="NoWrap" VerticalOptions="End"/>
+            
+                </StackLayout>
+            </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+
+
+      </ListView>
+      
+      
+      
+      
+    </ContentPage>
   </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
     <NavigationPage>

@@ -2,5 +2,56 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinSampleApp.Views.InformationFormPage">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+  <ScrollView Orientation="Vertical" Grid.Row="0">
+  <StackLayout VerticalOptions="FillAndExpand" Padding="20,5,20,0" Orientation="Vertical">
+    
+        <StackLayout VerticalOptions="Start"  Orientation="Vertical">
+
+      <Image Source="Photo.jpg" Aspect="AspectFit"  VerticalOptions="Start"></Image>
+      <Button TextColor="Black" Text="{Binding UploadPic}" VerticalOptions="Start" ></Button>
+        
+      <Button TextColor="Black" Text="{Binding TakePic}" VerticalOptions="Start" ></Button>
+    
+    </StackLayout>
+      
+    <StackLayout VerticalOptions="Start"  Orientation="Vertical">
+
+      <Label TextColor="Black" Text="{Binding Name}"  VerticalOptions="Start" ></Label>
+      <Entry TextColor="Black" Text=""  VerticalOptions="Start"></Entry>
+    </StackLayout>
+
+  
+    
+    <StackLayout VerticalOptions="Start"  Orientation="Vertical">
+
+      <Label TextColor="Black" Text="{Binding Nationality}" VerticalOptions="Start" ></Label>
+       <Picker x:Name="Picker" Title="Select Nationality"  HorizontalOptions="FillAndExpand">
+       
+    </Picker> 
+    </StackLayout>
+    <StackLayout VerticalOptions="Start" Orientation="Vertical">
+
+      <Label TextColor="Black" Text="{Binding DOB}" VerticalOptions="Start" ></Label>
+      <Entry TextColor="Black" Text=""  VerticalOptions="Start" ></Entry>
+    </StackLayout>
+     <StackLayout VerticalOptions="Start" Orientation="Vertical">
+
+      <Label TextColor="Black" Text="{Binding MaritalStatus}" VerticalOptions="Start" ></Label>
+      <Entry TextColor="Black" Text=""  VerticalOptions="Start" ></Entry>
+    </StackLayout>
+
+    <StackLayout VerticalOptions="Start" Orientation="Vertical">
+
+      <Label TextColor="Black" Text="{Binding Sex}" VerticalOptions="Start" ></Label>
+      <Entry TextColor="Black" Text=""  VerticalOptions="Start" ></Entry>
+    </StackLayout>
+  </StackLayout>
+  </ScrollView>
+   <Button Grid.Row="1" Text="Submit" TextColor="White" BackgroundColor="#3bc3a3"/>
+    </Grid>
 </ContentPage>
