@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinSampleApp.Views.InformationFormPage">
+             x:Class="XamarinSampleApp.Views.InformationFormPage"
+  xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+ 
+  >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -30,25 +33,39 @@
     <StackLayout VerticalOptions="Start"  Orientation="Vertical">
 
       <Label TextColor="Black" Text="{Binding Nationality}" VerticalOptions="Start" ></Label>
-       <Picker x:Name="Picker" Title="Select Nationality"  HorizontalOptions="FillAndExpand">
+       <Picker x:Name="Picker" Title="Select Nationality" ItemsSource="{Binding Country}" ItemDisplayBinding="{Binding name}"   HorizontalOptions="FillAndExpand">
        
     </Picker> 
     </StackLayout>
     <StackLayout VerticalOptions="Start" Orientation="Vertical">
 
       <Label TextColor="Black" Text="{Binding DOB}" VerticalOptions="Start" ></Label>
-      <Entry TextColor="Black" Text=""  VerticalOptions="Start" ></Entry>
+      <StackLayout>
+        <DatePicker  VerticalOptions="CenterAndExpand"  Date="{Binding Datetime}">
+            <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+            <!--<DatePicker.MinimumDate>
+                <sys:DateTime x:FactoryMethod="Parse">
+                    <x:Arguments>
+                        <x:String></x:String>
+                    </x:Arguments>
+                </sys:DateTime>
+            </DatePicker.MinimumDate>-->
+        </DatePicker>
+    </StackLayout>
     </StackLayout>
      <StackLayout VerticalOptions="Start" Orientation="Vertical">
 
       <Label TextColor="Black" Text="{Binding MaritalStatus}" VerticalOptions="Start" ></Label>
-      <Entry TextColor="Black" Text=""  VerticalOptions="Start" ></Entry>
+      <Picker x:Name="Maritalstatuspicker" Title="Select Marital Status" ItemsSource="{Binding Status}" />
     </StackLayout>
 
     <StackLayout VerticalOptions="Start" Orientation="Vertical">
 
       <Label TextColor="Black" Text="{Binding Sex}" VerticalOptions="Start" ></Label>
-      <Entry TextColor="Black" Text=""  VerticalOptions="Start" ></Entry>
+      
+      <!--<controls:BindableRadioGroup x:Name="MyRadiouGroup" 
+         ItemsSource="{Binding Path=MyList.Values}" 
+         SelectedIndex="{Binding SelectedIndex}" VerticalOptions="Start" />-->
     </StackLayout>
   </StackLayout>
   </ScrollView>
